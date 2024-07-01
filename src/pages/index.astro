@@ -1,16 +1,24 @@
 ---
+import { Counter } from '../components/Counter';
+import MainLayout from '../layouts/MainLayout.astro';
 
+// export const prerender = false;
+const counterValue = 4321;
+console.log({ counterValue });
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<MainLayout title="Home Page">
+  <h1 class="text-3xl">Home Page</h1>
+  <hr />
+
+  <h1>Counter: {100}</h1>
+
+  <button class="bg-blue-500 p-2 rounded text-white">Increment</button>
+  <button class="bg-blue-500 p-2 rounded text-white">Decrement</button>
+
+  <!-- Counter React -->
+  <h1 class="text-5xl">React</h1>
+  <Counter client:load initialValue={counterValue} />
+</MainLayout>
+
+<script></script>
